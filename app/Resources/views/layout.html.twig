@@ -1,0 +1,16 @@
+{#
+Cette page sert à comprendre l'utilisation de {{ path('') }} qui lorsqu'elle est appelé dans un href redirige après le clique
+vers le twig souhaité .Pour pouvoir tester son fonctionnnement il faudra ajuster la page appelé au niveau de l'AdminController
+#}
+{% extends '::layout_login.html.twig' %}
+
+{% block body %}
+    {# ... #}
+    <div class="text-center">
+        {% if is_granted('ROLE_USER') %}
+            <li><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+        {% else %}
+            <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends '::layout_login.html.twig' %}
+
+{% block menu  %}
+    <div class="row profile">
+        <div class="col-md-3">
+            <div class="profile-sidebar">
+
+
+
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li class="active">
+                            <a  href="{{ path('dashboard') }}">
+                                <i class="glyphicon glyphicon-home"></i>
+                                Mes annonces </a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user') }}">
+                                <i class="glyphicon glyphicon-user"></i>
+                                Mes infos </a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank">
+                                <i class="glyphicon glyphicon-envelope"></i>
+                                Mes messages </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="glyphicon glyphicon-flag"></i>
+                                Aide </a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-9">
+            <br class="profile-content">
+
+            {% if is_granted("ROLE_USER") %}
+                Nom: {{ app.user.username }}
+                Mail: {{ app.user.email }}
+            {% endif %}
+        </div>
+    </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends '::layout_login.html.twig' %}
+
+{% block formulaire  %}
+
+
+    {{ form_start(form) }}
+
+    <!-- <select class="form-control" name="categorie">-->
+     {#  {% for client in categ %}
+
+            <option value="{{ client.intitule }}" selected>{{ client.intitule }}</option>
+
+    {% endfor %}
+    </select>
+        </br>
+    {% for thetype in type %}
+        <input type="radio"  name="type" id="" value="{{ thetype.intitule }}"  />&nbsp;{{ thetype.intitule}}
+    {% endfor %}
+         </br>  </br>
+
+     #}
+    {{ form_row(form.thetype) }}
+    {{ form_row(form.thecategorie) }}
+    {{ form_row(form.titre) }}
+    {{ form_row(form.texte) }}
+    {{ form_row(form.prix) }}
+    {{ form_row(form.codepostal) }}
+    {{ form_row(form.adresse) }}
+    {{ form_row(form.date_annonce) }}
+    <button type="submit" class="">Save</button>
+    {{ form_end(form) }}
+
+
+
+{% endblock %}
